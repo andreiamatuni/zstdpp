@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string.h>
 
 #include "zstd.h"
