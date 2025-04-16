@@ -25,7 +25,7 @@ inline std::string compress(const std::string data, int compress_level) {
 inline std::string decompress(std::string data) {
 
   auto const est_decomp_size =
-      ZSTD_getDecompressedSize(data.data(), data.size());
+      ZSTD_getFrameContentSize(data.data(), data.size());
 
   std::string decomp_buffer{};
   decomp_buffer.resize(est_decomp_size);
@@ -56,7 +56,7 @@ inline std::string& buff_compress(const std::string data, std::string& buffer,
 inline std::string& buff_decompress(const std::string& data,
                                    std::string& buffer) {
   auto const est_decomp_size =
-      ZSTD_getDecompressedSize(data.data(), data.size());
+      ZSTD_getFrameContentSize(data.data(), data.size());
 
   buffer.resize(est_decomp_size);
 
