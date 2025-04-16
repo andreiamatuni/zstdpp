@@ -1,7 +1,9 @@
+#pragma once
+
+#include <string>
 #include <vector>
 #include <cstdint>
-#include <string>
-#include "zstd.h"
+#include <zstd.h>
 
 namespace zstdpp {
 
@@ -100,4 +102,5 @@ inline std::string& buff_decompress(const std::string& data,
   buffer.shrink_to_fit();
   return buffer;
 }
-}
+
+} // namespace zstdpp
