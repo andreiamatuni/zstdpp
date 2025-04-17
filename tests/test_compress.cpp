@@ -1,7 +1,4 @@
-#include <string>
-#include <iostream>
-
-#include "../zstdpp.hpp"
+#include "helpers.hpp"
 
 int main() {
   std::string input("this is a string that I want to compress into a smaller\n"
@@ -10,11 +7,5 @@ int main() {
                     "decent amount of content. Let's hope this works.\n");
 
   auto compressed = zstdpp::compress(input, 22);
-
-  std::cout << "\noriginal data: \n\n" << input << std::endl;
-
-  std::cout << "  \noriginal size: " << input.size() << std::endl;
-  std::cout << "compressed size: " << compressed.size() << std::endl;
-
-  std::cout << "\n\ncompressed data: \n\n" << compressed << std::endl;
+  print_compress_result(input, compressed);
 }
