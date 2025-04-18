@@ -7,9 +7,9 @@ int main() {
                     "compression buffer, I'm going to fill this string with a\n"
                     "decent amount of content. Let's hope this works.\n");
   // we're going to use the in-place functions, so we need to allocate a buffer
-  std::string buffer_compress{}, buffer_decompress{};
+  zstdpp::buffer_t buffer_compress{}, buffer_decompress{};
   
-  auto compressed_size = zstdpp::inplace::compress(input, buffer_compress, 22);
+  auto compressed_size = zstdpp::inplace::compress( zstdpp::utils::to_bytes(input), buffer_compress, 22);
 
   auto decompressed_size = zstdpp::inplace::decompress(buffer_compress, buffer_decompress);
   
